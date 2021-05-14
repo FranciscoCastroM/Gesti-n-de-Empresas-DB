@@ -15,7 +15,7 @@ class OrdenController extends Controller
     public function index()
     {
         //
-        return view('orden.index');
+        //return view('orden.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class OrdenController extends Controller
     public function create()
     {
         //
-        return view('orden.create');
+        //return view('orden.create');
     }
 
     /**

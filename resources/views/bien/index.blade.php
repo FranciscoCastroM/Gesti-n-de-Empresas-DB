@@ -1,4 +1,13 @@
-<table class="table table-light">
+
+@extends('layouts.app')
+
+@section('content')
+
+<div class="container">
+
+<a href="{{'bien/create'}}" class="btn btn-success">Registro Bienes</a>
+
+<table class="table table-light table-hover">
 
   <thead class="thead-light">
     <tr>
@@ -19,15 +28,15 @@
       <td>{{ $bien->UbicacionArea}}</td>
       <td>
 
-        <a href="{{ url('/bien/'.$bien->id.'/edit')}}">Editar</a>
+        <a class="btn btn-warning" href="{{ url('/bien/'.$bien->id.'/edit')}}">Editar</a>
 
 
          |
 
-      <form action="{{ url('/bien/'.$bien->id) }}" method="post">
+      <form action="{{ url('/bien/'.$bien->id) }}" method="post" style="display:inline">
       {{csrf_field() }}
       {{ method_field('DELETE') }}
-      <button type="submit" onclick="return confirm('¿Borrar?')">Borrar</button>
+      <button class="btn btn-danger" type="submit" onclick="return confirm('¿Borrar?')">Borrar</button>
 
       </form>
 
@@ -37,3 +46,6 @@
   </tbody>
 
 </table>
+</div>
+
+@endsection

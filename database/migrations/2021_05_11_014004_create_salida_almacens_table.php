@@ -14,7 +14,7 @@ class CreateSalidaAlmacensTable extends Migration
     public function up()
     {
         Schema::create('salida_almacens', function (Blueprint $table) {
-            $table->increments('id_salidaAlmacen');
+            $table->increments('id');
             $table->integer('NumSalida');
             $table->string('EmpleadoResponsable');
             $table->date('FechaSalida');

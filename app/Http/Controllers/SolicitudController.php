@@ -14,8 +14,7 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-        //
-        $datos['solicitudes']=Solicitud::paginate(4);
+        $datos['solicituds']=Solicitud::paginate(5);
 
         return view('solicitud.index', $datos);
     }
@@ -45,7 +44,8 @@ class SolicitudController extends Controller
 
         Solicitud::insert($datosSolicitud);
 
-        return response()->json($datosSolicitud);
+        //return response()->json($datosSolicitud);
+        return redirect('Solicitud');
     }
 
     /**
@@ -67,7 +67,6 @@ class SolicitudController extends Controller
      */
     public function edit($id)
     {
-        //
         $solicitud=Solicitud::findOrFail($id);
 
         return view('solicitud.edit',compact('solicitud'));
@@ -80,14 +79,13 @@ class SolicitudController extends Controller
      * @param  \App\Models\Solicitud  $solicitud
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Solicitud $solicitud)
+    public function update(Request $request, $id)
     {
-        //
         $datosSolicitud=request()->except(['_token','_method']);
-        Solicitud::where('id', '=', $id)->update($datosSolicitud);
-
-        $salida = Solicitud::findOrFail($id);
-        return view('solicitud.edit',compact('solicitud'));
+       Solicitud::where('id', '=', $id)->update($datosSolicitud);
+ 
+       $solicitud = Solicitud::findOrFail($id);
+       return view('solicitud.edit',compact('solicitud'));
     }
 
     /**
@@ -98,9 +96,8 @@ class SolicitudController extends Controller
      */
     public function destroy($id)
     {
-        //
         Solicitud::destroy($id);
-
-        return redirect('solicitud');
+ 
+       return redirect('solicitud');
     }
 }

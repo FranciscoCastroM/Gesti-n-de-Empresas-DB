@@ -1,21 +1,21 @@
-<form action="{url('/solicitud/' .$empleado->id) method="post" enctype="multipart/form-data">
+<form action="{url('/Solicitud' .$solicitud->id)" method="post" enctype="multipart/form-data">
 {{ csrf_field() }}
 {{ method_field('PATCH')}}
 
-<label for="Fecha">{{'Fecha'}}</label>
-<input type="date" name="Fecha" id="Fecha" value="{{$solicitud->Fecha}}"</input>
+<label for="fecha">{{'Fecha'}}</label>
+<input type="date" name="fecha" id="fecha" value="{{$solicitud->fecha}}">
 </br>
 
-<label for="Responsable">{{'Responsable'}}</label>
-<input type="text" name="Responsable" id="Responsable" value="{{$solicitud->Responsable}}"</input>
+<label for="responsable">{{'Responsable'}}</label>
+<input type="text" name="responsable" id="responsable" value="{{$solicitud->responsable}}">
 </br>
 
-<label for="Centro_Costo">{{'Centro_Costo'}}</label>
-<input type="text" name="centrocosto" id="centrocosto" value="{{$solicitud->centrocosto}}"</input>
+<label for="centrocosto">{{'Centro_Costpo'}}</label>
+<input type="text" name="centrocosto" id="centrocosto" value="{{$solicitud->centrocosto}}">
 </br>
 
 <label for="rubropresupuestal">{{'Responsable'}}</label>
-<input type="number" name="rubropresupuestal" id="rubropresupuestal" value="{{$solicitud->rubropresupuestal}}"</input>
+<input type="number" name="rubropresupuestal" id="rubropresupuestal" value="{{$solicitud->rubropresupuestal}}">
 </br>
 <input type="submit" value="Editar">
 

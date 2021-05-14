@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Models\SalidaAlmacen;
@@ -45,7 +44,8 @@ class SalidaAlmacenController extends Controller
 
         SalidaAlmacen::insert($datosSalidaAlmacen);
 
-        return response()->json($datosSalidaAlmacen);
+        //return response()->json($datosSalidaAlmacen);
+        return redirect('salida_almacen');
     }
 
     /**

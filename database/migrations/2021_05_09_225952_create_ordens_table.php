@@ -14,7 +14,7 @@ class CreateOrdensTable extends Migration
     public function up()
     {
         Schema::create('ordens', function (Blueprint $table) {
-            $table->id('id_orden');
+            $table->id('id');
             $table->integer('id_inventario');
             $table->integer('id_solicitud');
             $table->integer('nit');
@@ -34,6 +34,6 @@ class CreateOrdensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ordens');
+        Schema::dropIfExists('ordenes');
     }
 }
