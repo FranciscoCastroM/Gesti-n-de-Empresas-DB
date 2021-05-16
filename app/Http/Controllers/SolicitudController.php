@@ -82,10 +82,10 @@ class SolicitudController extends Controller
     public function update(Request $request, $id)
     {
         $datosSolicitud=request()->except(['_token','_method']);
-       Solicitud::where('id', '=', $id)->update($datosSolicitud);
- 
-       $solicitud = Solicitud::findOrFail($id);
-       return view('solicitud.edit',compact('solicitud'));
+        Solicitud::where('id', '=', $id)->update($datosSolicitud);
+
+        $solicitud = Solicitud::findOrFail($id);
+        return view('solicitud.edit',compact('solicitud'));
     }
 
     /**
@@ -98,6 +98,6 @@ class SolicitudController extends Controller
     {
         Solicitud::destroy($id);
  
-       return redirect('solicitud');
+       return redirect('Solicitud');
     }
 }

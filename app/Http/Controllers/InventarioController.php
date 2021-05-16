@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\orden;
+use App\Models\Inventario;
 use Illuminate\Http\Request;
 
-class OrdenController extends Controller
+class InventarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class OrdenController extends Controller
      */
     public function index()
     {
-    $datos['ordens']=Orden::paginate(6);
-
-      return view('orden.index', $datos);
+        //
     }
 
     /**
@@ -26,8 +24,7 @@ class OrdenController extends Controller
      */
     public function create()
     {
-        
-        return view('orden.create');
+        //
     }
 
     /**
@@ -38,21 +35,16 @@ class OrdenController extends Controller
      */
     public function store(Request $request)
     {
-        $datosOrden=request()->except('_token');
-
-        Orden::insert($datosOrden);
-
-        //return response()->json($datosBien);
-        return redirect('Orden');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\orden  $orden
+     * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function show(Orden $orden)
+    public function show(Inventario $inventario)
     {
         //
     }
@@ -60,45 +52,34 @@ class OrdenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\orden  $orden
+     * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Inventario $inventario)
     {
-        $orden = Orden::findOrFail($id);
-
-        return view('orden.edit',compact('orden'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\orden  $orden
+     * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Inventario $inventario)
     {
-        $datosOrden=request()->except(['_token','_method']);
-        Bien::where('id', '=', $id)->update($datosOrden);
-
-        $bien = Bien::findOrFail($id);
-        return view('orden.edit',compact('orden'));
+        //
     }
-    
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\orden  $orden
+     * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-
-
-    public function destroy($id)
+    public function destroy(Inventario $inventario)
     {
-        Orden::destroy($id);
-
-        return redirect('Orden');
+        //
     }
 }

@@ -28,12 +28,12 @@
       <td>{{$solicitud->rubropresupuestal}}</td>
       <td>
 
-        <a href="{{ url('/Solicitud/'.$solicitud->id.'/edit') }}"> Editar</a> 
+        <a class="btn btn-warning" href="{{ url('/Solicitud/'.$solicitud->id.'/edit') }}"> Editar</a> 
             
-         <form action="{{ url('/Solicitud/'.$solicitud->id) }}" method="post">
+         <form action="{{ url('/Solicitud/'.$solicitud->id) }}" method="post" style="display:inline">
         {{csrf_field() }}
         {{ method_field('DELETE') }}
-        <button type="submit" onclick="return confirm('¿Borrar?')">Borrar</button>
+        <button class="btn btn-danger" type="submit" onclick="return confirm('¿Borrar?')">Borrar</button>
 
         </form>
 

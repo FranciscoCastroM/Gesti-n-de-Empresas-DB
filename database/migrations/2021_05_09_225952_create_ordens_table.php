@@ -15,14 +15,14 @@ class CreateOrdensTable extends Migration
     {
         Schema::create('ordens', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('id_inventario');
-            $table->integer('id_solicitud');
+            //$table->id('id_inventario');
+            //$table->id('id_solicitud');
             $table->integer('nit');
             $table->string('proveedor');
             $table->date('fecha_orden');
             $table->integer('monto_total');
             $table->date('fecha_entrega');
-            $table->boolean('aprobada');
+            $table->string('aprobada');
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ class CreateOrdensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ordenes');
+        Schema::dropIfExists('ordens');
     }
 }

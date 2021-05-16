@@ -1,21 +1,17 @@
-<form action="{{ url('/Solicitud')}}" method="post" entype="multipart/form-data">
+@extends('layouts.app')
+
+@section('content')
+
+<div class="container">
+
+<form action="{{ url('/Solicitud')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
 {{ csrf_field() }}
-<label for="Fecha">{{'Fecha'}}</label>
-<input type="date" name="Fecha" id="Fecha" value="">
-</br>
 
-<label for="Responsable">{{'Responsable'}}</label>
-<input type="text" name="Responsable" id="Responsable" value="">
-</br>
+@include( 'solicitud.form',['Modo' => 'crear'])
 
-<label for="Centro_Costo">{{'Centro_Costo'}}</label>
-<input type="text" name="centrocosto" id="centrocosto" value="">
-</br>
 
-<label for="rubropresupuestal">{{'Rubro Presupuestal'}}</label>
-<input type="number" name="rubropresupuestal" id="rubropresupuestal" value="">
-</br>
-
-<input type="submit" value="Agregar">
 
 </form>
+</div>
+
+@endsection
