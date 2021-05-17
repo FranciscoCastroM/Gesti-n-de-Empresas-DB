@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\AlmacenController;
+use App\Http\Controllers\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,6 @@ Route::resource('bien', '\App\Http\Controllers\BienController');
 
 //rutas de almacen
 Route::resource('almacen',AlmacenController::class)->middleware('auth');
+
+//rutas de items
+Route::resource('items', ItemsController::class);

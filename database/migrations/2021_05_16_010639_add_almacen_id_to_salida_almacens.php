@@ -14,8 +14,8 @@ class AddAlmacenIdToSalidaAlmacens extends Migration
     public function up()
     {
         Schema::table('salida_almacens', function (Blueprint $table) {
-            $table->unsignedInteger('almacen_id');
-            $table->foreign('almacen_id')->references('id')->on('almacen');
+            $table->unsignedBigInteger('almacen_id')->nullable();
+            $table->foreign('almacen_id')->references('id')->on('salida_almacens');
         });
     }
 

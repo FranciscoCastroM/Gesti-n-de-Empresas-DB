@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\orden;
+use App\Models\Factura;
 use App\Models\items;
 use Illuminate\Http\Request;
 
@@ -15,6 +17,8 @@ class ItemsController extends Controller
     public function index()
     {
         //
+        $datos['items']=Items::paginate(5);
+        return view('items.index', $datos);
     }
 
     /**
@@ -25,6 +29,9 @@ class ItemsController extends Controller
     public function create()
     {
         //
+        $ordens=orden::all();
+        $facturas=Factura::all();
+        return view('items.create', compact('ordens', 'facturas'));
     }
 
     /**
@@ -36,6 +43,9 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
         //
+        $datosItems = request()->except('_token');
+        Items::insert($datosItems);
+        return redirect('items');
     }
 
     /**
@@ -55,9 +65,13 @@ class ItemsController extends Controller
      * @param  \App\Models\items  $items
      * @return \Illuminate\Http\Response
      */
-    public function edit(items $items)
+    public function edit($id)
     {
         //
+        $item=Items::findOrFail($id);
+        $ordens=orden::all();
+        $facturas=Factura::all();
+        return view('items.edit', compact('item', 'ordens', 'facturas'));
     }
 
     /**
@@ -67,9 +81,16 @@ class ItemsController extends Controller
      * @param  \App\Models\items  $items
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, items $items)
+    public function update(Request $request, $id)
     {
         //
+        $datosItems = request()->except(['_token','_method']);
+        Items::where('id','=',$id)->update($datosItems);
+       
+        $ordens=orden::all();
+        $facturas=Factura::all();
+        $item=Items::findOrFail($id);
+        return view('items.edit', compact('item','ordens','facturas'));
     }
 
     /**
@@ -78,8 +99,10 @@ class ItemsController extends Controller
      * @param  \App\Models\items  $items
      * @return \Illuminate\Http\Response
      */
-    public function destroy(items $items)
+    public function destroy($id)
     {
         //
+        Items::destroy($id);
+        return redirect('items');
     }
 }

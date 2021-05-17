@@ -14,7 +14,7 @@ class AddSolicitudIdToOrdens extends Migration
     public function up()
     {
         Schema::table('ordens', function (Blueprint $table) {
-            $table->unsignedInteger('solicitud_id');
+            $table->unsignedInteger('solicitud_id')->nullable();
             $table->foreign('solicitud_id')->references('id')->on('solicituds');
         });
     }
