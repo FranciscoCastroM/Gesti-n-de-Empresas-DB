@@ -14,15 +14,14 @@ class CreateAlmacensTable extends Migration
     public function up()
     {
         Schema::create('almacens', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             
-            $table->unsignedBigInteger('factura_id');
-            $table->unsignedBigInteger('salida_Almacen_id');
+            $table->string('nombre_almacen');
+            $table->unsignedBigInteger('factura_id')->nullable();
+            $table->unsignedBigInteger('salida_Almacen_id')->nullable();
            // $table->string('fecha_entrega_id');
 
             $table->foreign('factura_id')->references('id')->on('facturas');
- 
-            
             $table->foreign('salida_Almacen_id')->references('id')->on('salida_almacens');
  
         });

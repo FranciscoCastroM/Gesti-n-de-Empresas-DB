@@ -14,7 +14,7 @@ class AddInventarioIdToBiens extends Migration
     public function up()
     {
         Schema::table('biens', function (Blueprint $table) {
-            $table->unsignedBigInteger('inventario_id');
+            $table->unsignedBigInteger('inventario_id')->nullable();
             $table->foreign('inventario_id')->references('id')->on('inventarios');
         });
     }

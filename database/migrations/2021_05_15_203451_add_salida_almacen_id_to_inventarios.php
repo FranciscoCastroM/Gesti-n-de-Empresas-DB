@@ -14,7 +14,7 @@ class AddSalidaAlmacenIdToInventarios extends Migration
     public function up()
     {
         Schema::table('inventarios', function (Blueprint $table) {
-            $table->unsignedInteger('salidaalmacen_id');
+            $table->unsignedBigInteger('salidaalmacen_id')->nullable();
             $table->foreign('salidaalmacen_id')->references('id')->on('salida_almacens');
         });
     }
