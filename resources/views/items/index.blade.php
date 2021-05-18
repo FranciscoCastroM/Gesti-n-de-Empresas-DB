@@ -30,22 +30,17 @@
             <td>{{ $item->unidad_de_medida_bien }}</td>
             <td>{{ $item->valor_initario }}</td>
             <td>{{ $item->valor_total }}</td>
-            <td>
-            <a class="btn btn-warning" href="{{ url('/items/'.$item->id.'/edit') }}"> Editar </a>
-            
-            <form action="{{ url('/items/'.$item->id) }}" method="Post">
+           
+            <td><a class="btn btn-warning" href="{{ url('/items/'.$item->id.'/edit') }}"> Editar </a>
+            <form action="{{ url('/items/'.$item->id) }}" class="d-inline" method="Post">
             @csrf
             {{ method_field('DELETE') }}
-            <button class="btn btn-danger" type="submit" onclick="return confirm('Quieres Borrar?')" value="Borrar">
-            
+            <input class="btn btn-danger" type="submit" onclick="return confirm('Quieres Borrar?')" value="Borrar">
             </form>
-            
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-
 </div>
-
 @endsection
