@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\almacen;
 use App\Models\SalidaAlmacen;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class SalidaAlmacenController extends Controller
      */
     public function create()
     {
-        return view('salida_almacen.create');
+        $almacens=almacen::all();
+        return view('salida_almacen.create', compact('almacens'));
     }
 
     /**
@@ -69,7 +71,9 @@ class SalidaAlmacenController extends Controller
     {
         $salida = SalidaAlmacen::findOrFail($id);
 
-        return view('salida_almacen.edit',compact('salida'));
+        $almacens=almacen::all();
+
+        return view('salida_almacen.edit',compact('salida', 'almacens'));
     }
 
     /**
@@ -84,8 +88,9 @@ class SalidaAlmacenController extends Controller
         $datosSalidaAlmacen=request()->except(['_token','_method']);
         SalidaAlmacen::where('id', '=', $id)->update($datosSalidaAlmacen);
 
+        $almacens=almacen::all();
         $salida = SalidaAlmacen::findOrFail($id);
-        return view('salida_almacen.edit',compact('salida'));
+        return view('salida_almacen.edit',compact('salida', 'almacens'));
     }
 
     /**

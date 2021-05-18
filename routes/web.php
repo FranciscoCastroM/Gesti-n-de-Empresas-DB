@@ -40,7 +40,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('bien', '\App\Http\Controllers\BienController');  
 
 //rutas de almacen
-Route::resource('almacen',AlmacenController::class)->middleware('auth');
-
+Route::resource('almacen',AlmacenController::class);
 //rutas de items
 Route::resource('items', ItemsController::class);

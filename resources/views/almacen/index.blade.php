@@ -15,7 +15,7 @@
  
 
 
-<!--<a href = "{{url('almacen/create')}}" class="btn btn-success">Registrar nueva almacen</a>-->
+<a href = "{{url('almacen/create')}}" class="btn btn-success">Registrar nueva almacen</a>
 <h1 align="center" > Almacen</h1>
 <br/>
 <br/>
@@ -23,12 +23,12 @@
     
     <thead class="thead-light">
         <tr>
-            <!--<th>#</th>-->
-            <th>Factura id</th>
-            <th>Salida Almacen</th>
+            <th>Numero Almacen</th>
+            <th>Nombre Almacén</th>
+            <th>Dirección Almacén</th>
            
 
-            <!--<th>Acciones</th>-->
+            <th>Acciones</th>
             
     </thead>
     
@@ -36,20 +36,20 @@
     @foreach($almacens as $almacen)
         <tr>
            <!---->
-           <td><a href="{{url ('/factura/'.$almacen->id.'/edit')}}" class="">{{$almacen->id}}</td>
-           @foreach($almacenSalida as $alma)
-            <td><a href="{{url ('/salida_almacen/')}}" class="">{{ $alma->FechaSalida}}</td>
-            @endforeach
-         <!--
-            <td><a href="{{url ('/almacen/'.$almacen->factura_id.'/edit') }}" class="btn btn-warning"> Editar </a>   
+           
+           <td>{{ $almacen->id }}</td>
+            <td>{{ $almacen->nombreAlmacen }}</td>
+            <td>{{ $almacen->direccionAlmacen}}</td>
+        
+            <td><a href="{{url ('/almacen/'.$almacen->id.'/edit') }}" class="btn btn-warning"> Editar </a>   
             
             <form  action="{{url('/almacen/'.$almacen->id  )}}" class="d-inline" method="post">
             @csrf
             {{method_field('DELETE')}}
-                <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                <input class="btn btn-danger" type="submit" onclick="return confirm('¿Desea borrar los datos de almacen ?')" value="Borrar">
                 
             </form>
-            </td>-->
+            </td>
 
         </tr>
         @endforeach

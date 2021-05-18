@@ -1,4 +1,4 @@
-!-- AQUI VA EL FORM DE ALMACEN-->
+<!-- AQUI VA EL FORM DE ALMACEN-->
 
 <h1>{{$modo}} dato</h1>
 
@@ -16,15 +16,15 @@
 
 <div class="form-group">
 
-<label for="Nombre"> Salida Almacen </label>
-<input type="date" class="form-control" name="salidasA" value="{{isset($almacen->salidasA)?$almacen->salidasA:old('salidasA')}}" id="salidasA">
+<label for="Nombre"> Nombre de Almacén </label>
+<input type="text" class="form-control" name="nombreAlmacen" value="{{isset($almacen->nombreAlmacen)?$almacen->nombreAlmacen:old('nombreAlmacen')}}" id="nombreAlmacen">
 
 
 </div>
 
 <div class="form-group">
-<label for="Nombre"> Factura Almacen</label>
-<input type="text"class="form-control" name="facturaS" value="{{isset($almacen->facturaS)?$almacen->facturaS:old('facturaS')}}" id="facturaS">
+<label for="Nombre"> Dirección de Almacén</label>
+<input type="text"class="form-control" name="direccionAlmacen" value="{{isset($almacen->direccionAlmacen)?$almacen->direccionAlmacen:old('direccionAlmacen')}}" id="direccionAlmacen">
 
 
 </div>

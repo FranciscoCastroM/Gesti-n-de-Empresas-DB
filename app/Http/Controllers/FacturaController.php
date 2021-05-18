@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Factura;
+use App\Models\almacen;
 use Illuminate\Http\Request;
 
 class FacturaController extends Controller
@@ -27,7 +28,8 @@ class FacturaController extends Controller
     public function create()
     {
         //
-        return view('factura.create');
+        $almacen=almacen::all();
+        return view('factura.create',compact('almacen'));
     }
 
     /**
@@ -45,7 +47,8 @@ class FacturaController extends Controller
             'NumFactura' => 'required|string|max:60',   
             'Proveedor' => 'required|string|max:60',           
             'TotalBienes' => 'required|string|max:60',
-            'ValorTotal' => 'required|string|max:60'
+            'ValorTotal' => 'required|string|max:60',
+            'almacen_id'=>'required'
 
         ];
         $mensaje=[
@@ -82,7 +85,8 @@ class FacturaController extends Controller
     {
         //
         $factura=Factura::findOrfail($id);
-        return view('factura.edit',compact('factura'));
+        $almacen=almacen::all();
+        return view('factura.edit',compact('factura','almacen'));
     }
 
     /**
@@ -101,13 +105,15 @@ class FacturaController extends Controller
             'NumFactura' => 'required|string|max:60',   
             'Proveedor' => 'required|string|max:60',           
             'TotalBienes' => 'required|string|max:60',
-            'ValorTotal' => 'required|string|max:60'
+            'ValorTotal' => 'required|string|max:60',
+            'almacen_id'=>'required'
 
 
         ];
         $mensaje=[
             'required'=>'El :attribute es requerido ',
             'Fecha.required'=>'La Fecha es requerida'// esto si la fecha
+
         ];
         $this->validate($request,$campos,$mensaje);
 
@@ -116,8 +122,11 @@ class FacturaController extends Controller
         Factura::where('id','=',$id)->update($datoFactura);
 
         $factura=Factura::findOrfail($id);
-        return redirect('factura')->with('mensaje','La Factura modificado con exito');
-
+        $almacen=almacen::all();
+      
+        
+       // return view('factura.edit',compact('factura','almacen'));
+       return redirect('factura')->with('mensaje',' editado con exito');
       
        
     }

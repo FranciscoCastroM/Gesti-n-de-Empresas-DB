@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\almacen;
@@ -17,16 +16,10 @@ class AlmacenController extends Controller
     public function index()
     {
         //
-        $salidaA = SalidaAlmacen::all();
-        $factura = Factura::all();
-
-
-        $datos = array('almacens'=> $factura,
-                        'almacenSalida'=>$salidaA);
-
+        $datos['almacens']=almacen::paginate(5);
+        return view('almacen.index',$datos);
         
 
-        return view('almacen.index',$datos);
 
     }
 
@@ -51,8 +44,8 @@ class AlmacenController extends Controller
     {
         //
         $campos=[
-            'salidasA' => 'required|date',
-            'facturaS' => 'required|string'
+            'nombreAlmacen' => 'required|string|max:60',
+            'direccionAlmacen' => 'required|string|max:60'
         ];            
         $mensaje=[
             'required'=>'El :attribute es requerido ',
@@ -61,7 +54,7 @@ class AlmacenController extends Controller
 
         $datoAlmacen = request()->except("_token");
         almacen::insert($datoAlmacen);
-        return redirect('almacen')->with('mensaje','dato agregada con exito');
+        return redirect('almacen')->with('mensaje','Almacen agregada con exito');
     }
 
     /**
@@ -100,9 +93,9 @@ class AlmacenController extends Controller
     {
         //
         $campos=[
-            'salidasA' => 'required|date',
-            'facturaS' => 'required|string'
-        ];            
+            'nombreAlmacen' => 'required|string|max:60',
+            'direccionAlmacen' => 'required|string|max:60'
+        ];
         $mensaje=[
             'required'=>'El :attribute es requerido ',
         ];

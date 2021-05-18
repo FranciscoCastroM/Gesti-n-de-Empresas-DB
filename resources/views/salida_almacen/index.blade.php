@@ -15,6 +15,7 @@
         <th>Fecha Salida</th>
         <th>Fecha Entrega</th>
         <th>Acciones</th>
+        <th>Nombre de Almacen</th>
       </tr>
     </thead>
 
