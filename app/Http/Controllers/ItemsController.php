@@ -87,10 +87,8 @@ class ItemsController extends Controller
         $datosItems = request()->except(['_token','_method']);
         Items::where('id','=',$id)->update($datosItems);
        
-        $ordens=orden::all();
-        $facturas=Factura::all();
         $item=Items::findOrFail($id);
-        return view('items.edit', compact('item','ordens','facturas'));
+        return redirect('items');
     }
 
     /**

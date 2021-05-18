@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SalidaAlmacen;
 use App\Models\Inventario;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class InventarioController extends Controller
     public function index()
     {
         //
+        $datos['inventarios']=Inventario::paginate(5);
+        return view('inventario.index', $datos);
     }
 
     /**
@@ -25,6 +28,8 @@ class InventarioController extends Controller
     public function create()
     {
         //
+        $salidaalmacens=SalidaAlmacen::all();
+        return view('inventario.create', compact('salidaalmacens'));
     }
 
     /**
@@ -36,6 +41,9 @@ class InventarioController extends Controller
     public function store(Request $request)
     {
         //
+        $datosInventario = request()->except('_token');
+        Inventario::insert($datosInventario);
+        return redirect('inventario');
     }
 
     /**
@@ -55,9 +63,12 @@ class InventarioController extends Controller
      * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventario $inventario)
+    public function edit($id)
     {
         //
+        $salidaalmacens=SalidaAlmacen::all();
+        $inventario=Inventario::findOrFail($id);
+        return view('inventario.edit', compact('inventario', 'salidaalmacens'));
     }
 
     /**
@@ -67,9 +78,14 @@ class InventarioController extends Controller
      * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventario $inventario)
+    public function update(Request $request, $id)
     {
         //
+        $datosInventario = request()->except('_token', '_method');
+        Inventario::where('id', '=', $id)->update($datosInventario);
+
+        $inventario=Inventario::findOrFail($id);
+        return redirect('inventario');
     }
 
     /**
@@ -78,8 +94,12 @@ class InventarioController extends Controller
      * @param  \App\Models\Inventario  $inventario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventario $inventario)
+    public function destroy($id)
     {
         //
+        Inventario::destroy($id);
+        return redirect('inventario');
     }
 }
+
+    

@@ -10,8 +10,8 @@
             </ul>
         </div>
     @endif
-    <div class="form-group">
 
+    <div class="form-group">
     <label for="nombre_bien" class="control-label"> Nombre Bien </label>
     <input type="text" class="form-control" name="nombre_bien" value="{{ isset($item->nombre_bien)?$item->nombre_bien:'' }}" id="nombre_bien">
     <br>
@@ -39,23 +39,21 @@
     <br>    
 
     <div class="form-group">
-    <label for="orden_od" class="control-label"> Orden</label>
+    <label for="orden_id" class="control-label"> Orden</label>
     <select name="orden_id" class="form-control" id="orden_id" cols="40" rows="3">
     @foreach($ordens as $orden)
         <option value="{{ isset($orden->id)?$orden->id:'' }}">{{ $orden->nit }}</option>
     @endforeach
     </select>
     <br>
-
     <div class="form-group">
-    <label for="orden_od" class="control-label"> Factura</label>
+    <label for="factura_id" class="control-label"> Factura</label>
     <select name="factura_id" class="form-control" id="factura_id" cols="40" rows="3">
     @foreach($facturas as $factura)
         <option value="{{ isset($factura->id)?$factura->id:'' }}">{{ $factura->NumFactura }}</option>
     @endforeach
     </select>
     <br>
-
 
     <input type="submit" class="btn btn-success" value=" {{ $Modo == 'Crear' ? 'Agregar Registro': 'Modificar Registro' }} ">
 

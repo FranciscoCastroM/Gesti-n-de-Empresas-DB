@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('home') }}">
                    <!-- {{ config('app.name', 'Laravel') }}--> Los Pollos Hermanos 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -83,6 +83,14 @@
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('almacen.index') }}">{{ __('Almacen') }}</a>
+                    </li>
+                    </ul>   
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('inventario.index') }}">{{ __('Inventario') }}</a>
                     </li>
                     </ul>   
 
