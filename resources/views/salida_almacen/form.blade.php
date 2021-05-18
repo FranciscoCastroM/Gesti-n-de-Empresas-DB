@@ -27,6 +27,15 @@ value="{{isset($salida->FechaEntrega)?$salida->FechaEntrega:''}}"</input>
 </input>
 </div>
 
+<div class="form-group">
+    <label for="almacen_id" class="control-label"> Almacen</label>
+    <select name="almacen_id" id="almacen_id" cols="40" rows="3">
+    @foreach($almacens as $almacen)
+        <option value="{{ isset($almacen->id)?$almacen->id:'' }}">{{ $almacen->nombreAlmacen }}</option>
+    @endforeach
+    </select>
+    <br>
+
 <input type="submit" class="btn btn-success" name="" value="{{ $Modo == 'crear' ? 'Agregar Registro': 'Modificar Registro'}}">
 
 <a class="btn btn-primary" href="{{ url('salida_almacen')}}">Regresar</a>

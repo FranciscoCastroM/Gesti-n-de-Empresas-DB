@@ -15,6 +15,7 @@ class CreateInventariosTable extends Migration
     {
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id('id');
+            $table->unsignedBigInteger('num_inventario');
             $table->timestamps();
         });
     }

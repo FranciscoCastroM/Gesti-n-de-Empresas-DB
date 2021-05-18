@@ -1,5 +1,3 @@
-<!--index de factura-->
-
 @extends('layouts.app')
 
 @section('content')
@@ -30,6 +28,8 @@
             <th>Total Bienes</th>
             <th>Valor Total </th>
             <th>Fecha</th>
+
+            <th>Almacen</th>
             <th>Aacciones</th>
         </tr>
     </thead>
@@ -45,6 +45,7 @@
             
             <td>{{ $factura->ValorTotal}}</td>
             <td>{{ $factura->Fecha}}</td>
+            <td>{{ $factura->almacen_id}}</td>
             <td><a href="{{url ('/factura/'.$factura->id.'/edit') }}" class="btn btn-warning"> Editar </a>   
             
             <form  action="{{url('/factura/'.$factura->id  )}}" class="d-inline" method="post">

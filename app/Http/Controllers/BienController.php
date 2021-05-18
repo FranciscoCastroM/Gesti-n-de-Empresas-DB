@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventario;
 use App\Models\Bien;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class BienController extends Controller
      */
     public function create()
     {
-        return view('bien.create');
+        $invetarios=Inventario::all(); 
+        return view('bien.create', compact('inventarios'));
     }
 
     /**
@@ -65,9 +67,10 @@ class BienController extends Controller
      */
     public function edit($id)
     {
+        $inventarios=Inventario::all();
         $bien = Bien::findOrFail($id);
 
-        return view('bien.edit',compact('bien'));
+        return view('bien.edit',compact('bien', 'inventarios'));
     }
 
     /**
@@ -81,9 +84,10 @@ class BienController extends Controller
     {
       $datosBien=request()->except(['_token','_method']);
       Bien::where('id', '=', $id)->update($datosBien);
-
+      
+      $inventarios=Inventario::all();
       $bien = Bien::findOrFail($id);
-      return view('bien.edit',compact('bien'));
+      return view('bien.edit',compact('bien', 'inventarios'));
     }
 
     /**

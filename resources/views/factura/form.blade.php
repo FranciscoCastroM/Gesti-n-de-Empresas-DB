@@ -1,6 +1,3 @@
-
-<!-- plantilla para editar y crear      -->
-
 <h1>{{$modo}} Factura </h1>
 
 @if(count($errors)>0)
@@ -56,6 +53,14 @@
 
 </div>
 
+<div class="form-group">
+    <label for="orden_od" class="control-label"> Almacen</label>
+    <select name="almacen_id" id="almacen_id" cols="40" rows="3">
+    @foreach($almacen as $almacn)
+        <option value="{{ isset($almacn->id)?$almacn->id:'' }}">{{ $almacn->nombreAlmacen }}</option>
+    @endforeach
+    </select>
+</div>
 <input class="btn btn-success" type="submit" value="{{$modo}} datos">
 
 <a class="btn btn-primary" href = "{{url('factura')}}">Regresar</a>
