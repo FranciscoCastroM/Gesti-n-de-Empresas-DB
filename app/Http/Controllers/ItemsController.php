@@ -68,9 +68,9 @@ class ItemsController extends Controller
     public function edit($id)
     {
         //
-        $item=Items::findOrFail($id);
         $ordens=orden::all();
         $facturas=Factura::all();
+        $item=Items::findOrFail($id);
         return view('items.edit', compact('item', 'ordens', 'facturas'));
     }
 

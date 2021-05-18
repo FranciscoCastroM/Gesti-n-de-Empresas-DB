@@ -8,7 +8,7 @@
 @csrf
 {{ method_field('PATCH') }}
 
-@include('items.form',['Modo' => 'editar'])
+@include('items.form',['Modo' => 'Editar'])
 
 </form>
 

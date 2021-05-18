@@ -7,7 +7,7 @@
     <form action="{{ url('/items') }}" method="post" enctype="multipart/form-data">
     @csrf
 
-    @include('items.form',['Modo' => 'crear'])
+    @include('items.form',['Modo' => 'Crear'])
 
     </form>
 
