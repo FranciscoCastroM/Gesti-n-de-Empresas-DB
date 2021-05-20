@@ -4,7 +4,7 @@
 
 <div class="container">
     <a href="{{ 'items/create' }}" class="btn btn-success"> Registro Item</a>
-    
+    <h1 align="center" > Item</h1>
     <table class="table table-light table-hover">
     
     <thead class="thead-light">

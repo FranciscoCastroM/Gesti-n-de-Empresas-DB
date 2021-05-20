@@ -4,6 +4,7 @@
 
 <div class="container">
     <a href="{{ 'inventario/create' }}" class="btn btn-success"> Registro Inventario</a>
+    <h1 align="center" > Inventario</h1>
     <table class="table table-light table-hover">
     
     <thead class="thead-light">

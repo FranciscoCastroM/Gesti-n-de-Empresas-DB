@@ -15,7 +15,7 @@ class AddFacturaIdToItems extends Migration
     {
         Schema::table('items', function (Blueprint $table) {
             $table->unsignedBigInteger('factura_id')->nullable();
-            $table->foreign('factura_id')->references('id')->on('facturas');
+            $table->foreign('factura_id')->references('id')->on('facturas')->onDelete('cascade');
         });
     }
 

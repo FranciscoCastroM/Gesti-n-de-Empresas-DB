@@ -6,7 +6,7 @@
 <div class="container">
 
 <a href="{{'bien/create'}}" class="btn btn-success">Registro Bienes</a>
-
+<h1 align="center" > Bienes</h1>
 <table class="table table-light table-hover">
 
   <thead class="thead-light">

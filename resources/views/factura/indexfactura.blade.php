@@ -15,8 +15,7 @@
 
 
 <a href = "{{url('factura/create')}}" class="btn btn-success">Registrar nueva Factura</a>
-<br/>
-<br/>
+<h1 align="center" > Factura</h1>
 <table class="table table-light">
     
     <thead class="thead-light">
