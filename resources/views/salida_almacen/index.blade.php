@@ -14,8 +14,8 @@
         <th>Empleado Responsable</th>
         <th>Fecha Salida</th>
         <th>Fecha Entrega</th>
-        <th>Acciones</th>
         <th>Nombre de Almacen</th>
+        <th>Acciones</th>
       </tr>
     </thead>
 
