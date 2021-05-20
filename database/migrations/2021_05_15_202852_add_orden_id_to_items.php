@@ -15,7 +15,7 @@ class AddOrdenIdToItems extends Migration
     {
         Schema::table('items', function (Blueprint $table) {
             $table->unsignedBigInteger('orden_id')->nullable();
-            $table->foreign('orden_id')->references('id')->on('ordens');
+            $table->foreign('orden_id')->references('id')->on('ordens')->onDelete('cascade');
         });
     }
 

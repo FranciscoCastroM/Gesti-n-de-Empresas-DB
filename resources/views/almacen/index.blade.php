@@ -17,8 +17,6 @@
 
 <a href = "{{url('almacen/create')}}" class="btn btn-success">Registrar nueva almacen</a>
 <h1 align="center" > Almacen</h1>
-<br/>
-<br/>
 <table class="table table-light">
     
     <thead class="thead-light">

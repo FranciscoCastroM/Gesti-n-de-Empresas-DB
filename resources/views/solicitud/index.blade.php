@@ -2,8 +2,8 @@
 @section('content')
 <div class="container">
 <a href = "{{url('Solicitud/create')}}" class="btn btn-success">Registrar nueva Solicitud</a>
-<br/>
-<br/>
+<h1 align="center" > Solicitudes</h1>
+
 
 <table class="table table-light table-hover">
 

@@ -2,8 +2,7 @@
 @section('content')
 <div class="container">
   <a href="{{ url('salida_almacen/create')}}" class="btn btn-success">Registrar Salida Almacen</a>
-</br>
-</br>
+  <h1 align="center" > Salida Almacen</h1>
 
   <table class="table table-light table-hover">
 

@@ -43,7 +43,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="{{ route('salida_almacen.index') }}">{{ __('salida almacen') }}</a>
+                    <a class="nav-link" href="{{ route('salida_almacen.index') }}">{{ __('Salida Almacen') }}</a>
                     </li>
                     </ul>
 

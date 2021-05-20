@@ -5,6 +5,7 @@
 <div class="container">
 
 <a href="{{'Orden/create'}}" class="btn btn-success">Registro Ordenes</a>
+<h1 align="center" > Ordenes</h1>
 
 <table class="table table-light table-hover">
 

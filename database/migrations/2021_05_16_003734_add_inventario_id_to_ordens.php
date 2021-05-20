@@ -15,7 +15,7 @@ class AddInventarioIdToOrdens extends Migration
     {
         Schema::table('ordens', function (Blueprint $table) {
             $table->unsignedBigInteger('inventario_id')->nullable();
-            $table->foreign('inventario_id')->references('id')->on('inventarios');
+            $table->foreign('inventario_id')->references('id')->on('inventarios')->onDelete('cascade');
         });
     }
 

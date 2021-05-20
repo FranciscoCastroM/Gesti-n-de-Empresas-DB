@@ -27,7 +27,7 @@ class BienController extends Controller
      */
     public function create()
     {
-        $invetarios=Inventario::all(); 
+        $inventarios=Inventario::all(); 
         return view('bien.create', compact('inventarios'));
     }
 
