@@ -13,8 +13,9 @@
         <th>Empleado Responsable</th>
         <th>Fecha Salida</th>
         <th>Fecha Entrega</th>
-        <th>Acciones</th>
         <th>Nombre de Almacen</th>
+        <th>Acciones</th>
+        
       </tr>
     </thead>
 
@@ -26,6 +27,7 @@
         <td>{{ $salida->EmpleadoResponsable}}</td>
         <td>{{ $salida->FechaSalida}}</td>
         <td>{{ $salida->FechaEntrega}}</td>
+        <td>{{ $salida->almacen_id }}</td>
         <td>
 
           <a class="btn btn-warning" href="{{ url('/salida_almacen/'.$salida->id.'/edit')}}">Editar</a>
