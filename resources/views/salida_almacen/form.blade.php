@@ -35,6 +35,7 @@ value="{{isset($salida->FechaEntrega)?$salida->FechaEntrega:''}}"</input>
     @endforeach
     </select>
     <br>
+</div>
 
 <input type="submit" class="btn btn-success" name="" value="{{ $Modo == 'crear' ? 'Agregar Registro': 'Modificar Registro'}}">
 
