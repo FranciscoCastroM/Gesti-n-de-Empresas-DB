@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+
+
 <div class="container">
   <a href="{{ url('salida_almacen/create')}}" class="btn btn-success">Registrar Salida Almacen</a>
   <h1 align="center" > Salida Almacen</h1>
@@ -15,6 +17,7 @@
         <th>Fecha Entrega</th>
         <th>Nombre de Almacen</th>
         <th>Acciones</th>
+        
       </tr>
     </thead>
 
@@ -26,6 +29,7 @@
         <td>{{ $salida->EmpleadoResponsable}}</td>
         <td>{{ $salida->FechaSalida}}</td>
         <td>{{ $salida->FechaEntrega}}</td>
+        <td>{{ $salida->almacen_id }}</td>
         <td>
 
           <a class="btn btn-warning" href="{{ url('/salida_almacen/'.$salida->id.'/edit')}}">Editar</a>
@@ -40,6 +44,7 @@
 
 
         </form>
+
 
         </td>
       </tr>
