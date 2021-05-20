@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
+
 <div class="container">
   <a href="{{ url('salida_almacen/create')}}" class="btn btn-success">Registrar Salida Almacen</a>
   <h1 align="center" > Salida Almacen</h1>
@@ -43,6 +44,7 @@
 
 
         </form>
+
 
         </td>
       </tr>
